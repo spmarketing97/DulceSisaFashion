@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>DulceSiSaFashion - Tartas Personalizadas Artesanales | Aguilafuente, Segovia</title>
+    <meta name="description"
+        content="Creamos tartas artesanales personalizadas para bodas, cumpleaños y eventos especiales en Aguilafuente, Segovia. Diseños únicos, sabor excepcional. ¡Pide tu presupuesto sin compromiso! Respuesta en menos de 6 horas.">
+    <meta name="keywords"
+        content="tartas personalizadas, repostería artesanal Segovia, pasteles bodas Aguilafuente, tartas cumpleaños, dulces artesanales, DulcesSiSaFashion, tartas eventos Segovia, repostería profesional">
+    <meta name="author" content="DulcesSiSaFashion">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.ducessisafashion.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.dulcessisafashion.com/">
+    <meta property="og:title" content="DulceSiSaFashion - Tartas Personalizadas Artesanales | Aguilafuente, Segovia">
+    <meta property="og:description"
+        content="Transformamos tus celebraciones en experiencias inolvidables. Tartas artesanales únicas para bodas, cumpleaños y eventos especiales.">
+    <meta property="og:image" content="IMG/1.jpeg">
+    <meta property="og:locale" content="es_ES">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DulceSiSaFashion - Tartas Artesanales Personalizadas">
+    <meta name="twitter:description" content="Creaciones únicas de repostería artesanal en Aguilafuente, Segovia">
+    <meta name="twitter:image" content="IMG/1.jpeg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Bakery",
+      "name": "DulceSiSaFashion",
+      "description": "Repostería artesanal personalizada para bodas, cumpleaños y eventos especiales",
+      "image": "IMG/1.jpeg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Aguilafuente",
+        "addressRegion": "Segovia",
+        "addressCountry": "ES"
+      },
+      "telephone": "+34-XXX-XXX-XXX",
+      "priceRange": "$$",
+      "servesCuisine": "Repostería, Pastelería",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "100"
+      }
+    }
+    </script>
+</head>
+
+<body class="bg-gradient-to-br from-pink-50 via-rose-50 to-purple-50">
+
+    <!-- Navigation -->
+    <nav class="bg-white/95 backdrop-blur-md shadow-md sticky top-0 z-40" id="main-nav">
+        <div class="container mx-auto px-4 md:px-6 py-3 md:py-4">
+            <div class="flex justify-between items-center">
+                <!-- Brand Name -->
+                <div
+                    class="brand-name text-2xl md:text-3xl font-bold bg-gradient-to-r from-pink-500 to-rose-600 bg-clip-text text-transparent">
+                    DulceSiSaFashion
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6 flex-1 justify-center">
+                    <a href="#especialidades"
+                        class="text-gray-700 hover:text-pink-500 transition font-medium">Especialidades</a>
+                    <a href="#tartas" class="text-gray-700 hover:text-pink-500 transition font-medium">Tartas
+                        Exclusivas</a>
+                    <a href="#pedido" class="text-gray-700 hover:text-pink-500 transition font-medium">Proceso</a>
+                </div>
+
+                <!-- Desktop CTA Button -->
+                <a href="#pedido"
+                    class="hidden md:inline-flex items-center bg-gradient-to-r from-pink-500 to-rose-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition">
+                    <i class="fab fa-whatsapp mr-2"></i>Contactar
+                </a>
+
+                <!-- Mobile CTA Button -->
+                <a href="#pedido"
+                    class="md:hidden inline-flex items-center bg-gradient-to-r from-pink-500 to-rose-600 text-white px-3 py-1.5 text-sm rounded-full hover:shadow-lg transition">
+                    <i class="fab fa-whatsapp mr-1 text-sm"></i>
+                    <span class="text-xs">Contactar</span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-700 ml-2" id="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="mobile-menu hidden md:hidden mt-4 pb-2" id="mobile-menu">
+                <div class="flex flex-col space-y-3">
+                    <a href="#especialidades"
+                        class="text-gray-700 hover:text-pink-500 transition font-medium py-2 border-b border-gray-100"
+                        onclick="toggleMobileMenu()">Especialidades</a>
+                    <a href="#tartas"
+                        class="text-gray-700 hover:text-pink-500 transition font-medium py-2 border-b border-gray-100"
+                        onclick="toggleMobileMenu()">Tartas Exclusivas</a>
+                    <a href="#pedido" class="text-gray-700 hover:text-pink-500 transition font-medium py-2"
+                        onclick="toggleMobileMenu()">Proceso</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Video Slider Section -->
+    <section class="relative h-[600px] overflow-hidden" id="hero">
+        <div id="video-slides">
+            <div class="video-slide">
+                <video autoplay muted loop playsinline>
+                    <source src="Videos/1.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <div class="text-center text-white px-6 max-w-4xl">
+                        <h1 class="text-5xl md:text-7xl font-bold mb-6">✨ Creaciones Únicas, Sabores Inolvidables</h1>
+                        <p class="text-xl md:text-2xl mb-8 font-light">Tartas artesanales personalizadas para tus
+                            momentos más especiales</p>
+                        <a href="#pedido"
+                            class="inline-block bg-white text-pink-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-pink-50 transition transform hover:scale-105 shadow-2xl">
+                            <i class="fas fa-heart mr-2"></i>Pide Tu Presupuesto Gratis
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="video-slide" style="display: none;">
+                <video autoplay muted loop playsinline>
+                    <source src="Videos/2.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <div class="text-center text-white px-6 max-w-4xl">
+                        <h1 class="text-5xl md:text-7xl font-bold mb-6">💍 Bodas de Ensueño</h1>
+                        <p class="text-xl md:text-2xl mb-8 font-light">El toque perfecto para tu día más especial</p>
+                        <a href="#pedido"
+                            class="inline-block bg-white text-purple-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-purple-50 transition transform hover:scale-105 shadow-2xl">
+                            <i class="fas fa-heart mr-2"></i>Descubre Más
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="video-slide" style="display: none;">
+                <video autoplay muted loop playsinline>
+                    <source src="Videos/3.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <div class="text-center text-white px-6 max-w-4xl">
+                        <h1 class="text-5xl md:text-7xl font-bold mb-6">🎂 Celebraciones Mágicas</h1>
+                        <p class="text-xl md:text-2xl mb-8 font-light">Diseños personalizados que sorprenden y enamoran
+                        </p>
+                        <a href="#pedido"
+                            class="inline-block bg-white text-rose-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-rose-50 transition transform hover:scale-105 shadow-2xl">
+                            <i class="fas fa-heart mr-2"></i>Cuéntanos Tu Idea
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="video-slide" style="display: none;">
+                <video autoplay muted loop playsinline>
+                    <source src="Videos/4.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <div class="text-center text-white px-6 max-w-4xl">
+                        <h1 class="text-5xl md:text-7xl font-bold mb-6">🎨 Arte Comestible</h1>
+                        <p class="text-xl md:text-2xl mb-8 font-light">Cada tarta es una obra maestra personalizada</p>
+                        <a href="#pedido"
+                            class="inline-block bg-white text-pink-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-pink-50 transition transform hover:scale-105 shadow-2xl">
+                            <i class="fas fa-heart mr-2"></i>Ver Nuestras Creaciones
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="video-slide" style="display: none;">
+                <video autoplay muted loop playsinline>
+                    <source src="Videos/5.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <div class="text-center text-white px-6 max-w-4xl">
+                        <h1 class="text-5xl md:text-7xl font-bold mb-6">👑 Elegancia y Sabor</h1>
+                        <p class="text-xl md:text-2xl mb-8 font-light">Ingredientes premium, diseños sofisticados</p>
+                        <a href="#pedido"
+                            class="inline-block bg-white text-purple-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-purple-50 transition transform hover:scale-105 shadow-2xl">
+                            <i class="fas fa-heart mr-2"></i>Solicita Tu Tarta
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="video-slide" style="display: none;">
+                <video autoplay muted loop playsinline>
+                    <source src="Videos/10.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <div class="text-center text-white px-6 max-w-4xl">
+                        <h1 class="text-5xl md:text-7xl font-bold mb-6">🌟 Momentos Especiales</h1>
+                        <p class="text-xl md:text-2xl mb-8 font-light">Comuniones, bautizos, aniversarios únicos</p>
+                        <a href="#pedido"
+                            class="inline-block bg-white text-rose-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-rose-50 transition transform hover:scale-105 shadow-2xl">
+                            <i class="fas fa-heart mr-2"></i>Empieza Ahora
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="video-slide" style="display: none;">
+                <video autoplay muted loop playsinline>
+                    <source src="Videos/11.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <div class="text-center text-white px-6 max-w-4xl">
+                        <h1 class="text-5xl md:text-7xl font-bold mb-6">💝 Dulzura Artesanal</h1>
+                        <p class="text-xl md:text-2xl mb-8 font-light">Hecho con amor, cuidado y dedicación</p>
+                        <a href="#pedido"
+                            class="inline-block bg-white text-pink-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-pink-50 transition transform hover:scale-105 shadow-2xl">
+                            <i class="fas fa-heart mr-2"></i>Contacta Con Nosotros
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="video-slide" style="display: none;">
+                <video autoplay muted loop playsinline>
+                    <source src="Videos/12.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <div class="text-center text-white px-6 max-w-4xl">
+                        <h1 class="text-5xl md:text-7xl font-bold mb-6">🎉 Haz Realidad Tus Sueños</h1>
+                        <p class="text-xl md:text-2xl mb-8 font-light">Diseños únicos que superan tus expectativas</p>
+                        <a href="#pedido"
+                            class="inline-block bg-white text-purple-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-purple-50 transition transform hover:scale-105 shadow-2xl">
+                            <i class="fas fa-heart mr-2"></i>Pide Tu Tarta Perfecta
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Especialidades Section -->
+    <section id="especialidades" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Nuestras Especialidades</h2>
+                <p class="text-gray-600 text-lg">Cada tarta es una obra de arte única, creada con amor y dedicación</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div
+                    class="group bg-gradient-to-br from-pink-50 to-rose-50 p-8 rounded-2xl hover:shadow-xl transition-all cursor-pointer">
+                    <div class="text-5xl mb-4 group-hover:scale-110 transition">💑</div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Bodas</h3>
+                    <p class="text-gray-600 mb-4">Tartas elegantes de varios pisos con flores naturales y diseños
+                        sofisticados para tu gran día.</p>
+                    <button onclick="openSpecialtyModal('bodas')" class="text-pink-600 font-semibold hover:underline">
+                        Más información <i class="fas fa-arrow-right ml-1"></i>
+                    </button>
+                </div>
+
+                <div
+                    class="group bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl hover:shadow-xl transition-all cursor-pointer">
+                    <div class="text-5xl mb-4 group-hover:scale-110 transition">🎂</div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Cumpleaños</h3>
+                    <p class="text-gray-600 mb-4">Diseños temáticos personalizados que hacen de cada cumpleaños una
+                        celebración memorable.</p>
+                    <button onclick="openSpecialtyModal('cumpleanos')"
+                        class="text-pink-600 font-semibold hover:underline">
+                        Más información <i class="fas fa-arrow-right ml-1"></i>
+                    </button>
+                </div>
+
+                <div
+                    class="group bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-2xl hover:shadow-xl transition-all cursor-pointer">
+                    <div class="text-5xl mb-4 group-hover:scale-110 transition">✨</div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Eventos Especiales</h3>
+                    <p class="text-gray-600 mb-4">Bautizos, comuniones, aniversarios... Creamos la tarta perfecta para
+                        cada ocasión.</p>
+                    <button onclick="openSpecialtyModal('eventos')" class="text-pink-600 font-semibold hover:underline">
+                        Más información <i class="fas fa-arrow-right ml-1"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tartas Gallery Section (Slider) -->
+    <section id="tartas" class="py-20 bg-gradient-to-br from-pink-50 via-rose-50 to-purple-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">🍰 Nuestras Tartas Exclusivas</h2>
+                <p class="text-gray-600 text-lg">Un vistazo a nuestras creaciones más especiales - Haz click para ver
+                    más detalles</p>
+            </div>
+
+            <div class="cake-slider-container">
+                <div class="cake-slider" id="cake-slider">
+                    <!-- Cakes will be dynamically inserted here by JavaScript -->
+                </div>
+                <div class="slider-dots" id="slider-dots">
+                    <!-- Dots will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section - ¿Cómo Hacer Tu Pedido? -->
+    <section id="pedido" class="py-24 bg-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-pink-100/50 to-rose-100/50"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">¿Cómo Hacer Tu Pedido?</h2>
+                    <p class="text-gray-600 text-xl">Sencillo, rápido y sin compromiso</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="text-center bg-white p-6 rounded-2xl shadow-lg">
+                        <div
+                            class="bg-gradient-to-br from-pink-100 to-rose-100 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-4 text-4xl">
+                            <i class="fab fa-whatsapp text-pink-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">1. Contáctanos</h3>
+                        <p class="text-gray-600">Envíanos un mensaje por WhatsApp con tu idea y fecha del evento</p>
+                    </div>
+
+                    <div class="text-center bg-white p-6 rounded-2xl shadow-lg">
+                        <div
+                            class="bg-gradient-to-br from-purple-100 to-pink-100 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-4 text-4xl">
+                            <i class="fas fa-palette text-purple-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">2. Diseñamos Juntos</h3>
+                        <p class="text-gray-600">Creamos un diseño único personalizado solo para ti</p>
+                    </div>
+
+                    <div class="text-center bg-white p-6 rounded-2xl shadow-lg">
+                        <div
+                            class="bg-gradient-to-br from-rose-100 to-pink-100 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-4 text-4xl">
+                            <i class="fas fa-birthday-cake text-rose-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">3. Celebra y Disfruta</h3>
+                        <p class="text-gray-600">Recoge tu tarta y sorprende a todos con una creación única</p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-gradient-to-r from-pink-500 to-rose-600 rounded-3xl p-12 text-center text-white shadow-2xl">
+                    <h3 class="text-4xl md:text-5xl font-bold mb-4">¿Lista para tu Tarta Perfecta?</h3>
+                    <p class="text-2xl mb-8 opacity-90">✨ Pide Tu Presupuesto SIN COMPROMISO</p>
+                    <a href="https://wa.link/ixpf52" target="_blank"
+                        class="cta-button inline-block bg-white text-pink-600 px-12 py-5 rounded-full font-bold text-xl hover:bg-gray-50 transition transform shadow-2xl">
+                        <i class="fab fa-whatsapp mr-2 text-3xl align-middle"></i>
+                        Escríbenos por WhatsApp
+                    </a>
+                    <p class="mt-6 text-lg opacity-90">⏱️ Respuesta en menos de 2 horas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3
+                        class="text-2xl font-bold text-white mb-4 bg-gradient-to-r from-pink-400 to-rose-400 bg-clip-text text-transparent">
+                        DulcesSiSaFashion</h3>
+                    <p class="text-gray-400 leading-relaxed">Transformamos tus celebraciones en experiencias
+                        inolvidables. Cada tarta cuenta una historia única, elaborada con pasión artesanal y los mejores
+                        ingredientes.</p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Ubicación</h4>
+                    <p class="mb-2"><i class="fas fa-map-marker-alt mr-2 text-rose-400"></i> Aguilafuente, Segovia,
+                        Spain</p>
+                    <div class="mt-4">
+                        <h4 class="text-white font-semibold mb-3">Legal</h4>
+                        <div class="flex flex-wrap gap-4">
+                            <button onclick="openLegalModal('privacidad')"
+                                class="text-gray-400 hover:text-pink-400 transition">Política de Privacidad</button>
+                            <button onclick="openLegalModal('cookies')"
+                                class="text-gray-400 hover:text-pink-400 transition">Cookies</button>
+                            <button onclick="openLegalModal('aviso')"
+                                class="text-gray-400 hover:text-pink-400 transition">Aviso Legal</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Síguenos</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61580866895421" target="_blank"
+                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-500 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/sisa_nikol?igsh=MWhpZDZyeG84cDZlOQ==" target="_blank"
+                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-500 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@sisanikol?is_from_webapp=1&sender_device=pc" target="_blank"
+                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-500 transition">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+                <p>&copy; 2026 DulceSiSaFashion. Todos los derechos reservados. Hecho con 💕 en Segovia, España.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <button
+        class="floating-whatsapp fixed bottom-8 right-8 z-50 bg-green-500 hover:bg-green-600 text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-3xl transition-all">
+        <i class="fab fa-whatsapp"></i>
+    </button>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-top-btn" class="scroll-top-btn" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- WhatsApp Pre-Message Popup -->
+    <div class="modal-overlay" id="whatsapp-overlay"></div>
+    <div class="whatsapp-popup" id="whatsapp-popup">
+        <h3>🎂 ¡Hola! ¿Lista para crear la tarta de tus sueños?</h3>
+        <p>Cuéntanos tu idea y recibe un presupuesto personalizado <strong>sin compromiso</strong>. Estamos aquí para
+            hacer realidad tu celebración perfecta. ¡Respondemos en menos de 6 horas! 💕</p>
+        <div class="whatsapp-popup-buttons">
+            <button onclick="continueToWhatsApp()" class="btn-continue">
+                <i class="fab fa-whatsapp mr-2"></i>Sí, continuar
+            </button>
+            <button onclick="closeWhatsAppPopup()" class="btn-cancel">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Specialty Modals -->
+    <div class="modal-overlay" id="modal-bodas">
+        <div class="modal-content">
+            <button onclick="closeSpecialtyModal('bodas')" class="modal-close">&times;</button>
+            <h2 class="text-3xl font-bold mb-6 text-pink-600">💍 Tartas de Boda Personalizadas</h2>
+            <div class="legal-content">
+                <h3>El Toque Mágico de Tu Gran Día</h3>
+                <p>Tu boda es uno de los días más importantes de tu vida, y cada detalle cuenta. En DulcesSiSaFashion,
+                    entendemos que la tarta de bodas no es solo un postre, es una obra de arte comestible que refleja tu
+                    amor, tu estilo y tu historia única.</p>
+
+                <h3>Diseños Personalizados y Únicos</h3>
+                <p>Trabajamos contigo desde el primer momento para crear la tarta de bodas de tus sueños. Ya sea que
+                    busques un diseño clásico y elegante con flores naturales y acabados en fondant inmaculado, o
+                    prefieras algo más moderno y minimalista con líneas limpias y detalles dorados, nos adaptamos
+                    completamente a tu visión.</p>
+
+                <p>Nuestras tartas de boda pueden incluir múltiples pisos, decoraciones florales frescas cuidadosamente
+                    seleccionadas, trabajos de encaje comestible hechos a mano, detalles en oro o plata comestibles, y
+                    acabados perfectos que harán que tu tarta sea el centro de atención de tu celebración.</p>
+
+                <h3>Sabores Excepcionales</h3>
+                <p>La belleza es importante, pero el sabor es fundamental. Ofrecemos una amplia gama de sabores gourmet:
+                    desde el clásico bizcocho de vainilla con crema de mantequilla hasta combinaciones más aventureras
+                    como chocolate con frambuesa, limón con lavanda, o pistacho con crema de queso. Cada piso puede
+                    tener un sabor diferente para satisfacer todos los paladares de tus invitados.</p>
+
+                <h3>¿Por Qué Elegir DulcesSiSaFashion?</h3>
+                <ul>
+                    <li><strong>Experiencia y Profesionalidad:</strong> Años creando tartas de boda memorables para
+                        parejas en Segovia y alrededores.</li>
+                    <li><strong>Ingredientes Premium:</strong> Utilizamos solo los mejores ingredientes, frescos y de
+                        calidad superior.</li>
+                    <li><strong>Atención Personalizada:</strong> Cada pareja es única, y tu tarta también lo será.</li>
+                    <li><strong>Diseño a Medida:</strong> Trabajamos contigo en cada etapa del proceso de diseño.</li>
+                    <li><strong>Entrega Puntual:</strong> Tu tarta llegará perfecta y a tiempo para tu gran día.</li>
+                </ul>
+
+                <p>No dejes la tarta de tu boda al azar. Contáctanos hoy mismo y comienza a diseñar la tarta que siempre
+                    has imaginado. ¡Hagamos que tu día sea aún más dulce!</p>
+
+                <div class="text-center mt-6">
+                    <a href="#pedido" onclick="closeSpecialtyModal('bodas')"
+                        class="inline-block bg-gradient-to-r from-pink-500 to-rose-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl transition transform hover:scale-105">
+                        <i class="fab fa-whatsapp mr-2"></i>Solicita Tu Presupuesto Gratis
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-cumpleanos">
+        <div class="modal-content">
+            <button onclick="closeSpecialtyModal('cumpleanos')" class="modal-close">&times;</button>
+            <h2 class="text-3xl font-bold mb-6 text-purple-600">🎂 Tartas de Cumpleaños Únicas</h2>
+            <div class="legal-content">
+                <h3>Celebra Con Dulzura y Estilo</h3>
+                <p>Los cumpleaños son momentos especiales que merecen ser celebrados de manera única. En
+                    DulcesSiSaFashion, creamos tartas de cumpleaños personalizadas que no solo son deliciosas, sino que
+                    también capturan la personalidad y los intereses del cumpleañero o cumpleañera.</p>
+
+                <h3>Diseños Temáticos Para Todas las Edades</h3>
+                <p>Desde princesas encantadas y superhéroes valientes para los más pequeños, hasta diseños elegantes y
+                    sofisticados para adultos, nuestra creatividad no tiene límites. Trabajamos con temas populares como
+                    unicornios, dinosaurios, fútbol, construcción, sirenas, y mucho más. También creamos diseños
+                    personalizados basados en hobbies, profesiones o intereses específicos.</p>
+
+                <p>Para los adultos, ofrecemos tartas minimalistas modernas, diseños con flores elegantes, tartas drip
+                    con chocolates premium, o creaciones temáticas que reflejan sus pasiones: desde viajes hasta música,
+                    deportes o profesiones.</p>
+
+                <h3>Personalización Total</h3>
+                <p>Cada tarta de cumpleaños que creamos es única. Incluimos el nombre del cumpleañero, su edad, colores
+                    favoritos, y todos los detalles que hagan que la tarta sea verdaderamente especial. Utilizamos
+                    figuras modeladas a mano, decoraciones comestibles de alta calidad, y técnicas artesanales que
+                    garantizan un resultado impresionante.</p>
+
+                <h3>Sabores Que Encantarán a Todos</h3>
+                <p>Ofrecemos una amplia variedad de sabores para todos los gustos: chocolate húmedo, vainilla clásica,
+                    red velvet, zanahoria con especias, fresa fresca, limón, y combinaciones únicas. También nos
+                    adaptamos a necesidades dietéticas especiales cuando sea necesario.</p>
+
+                <h3>Momentos Memorables</h3>
+                <p>Entendemos que la tarta de cumpleaños es el centro de la celebración. Es el momento en que todos se
+                    reúnen, cantan, y comparten la alegría. Por eso, nos aseguramos de que cada tarta no solo sea
+                    hermosa y deliciosa, sino que también cree recuerdos inolvidables.</p>
+
+                <p>Haz que el próximo cumpleaños sea verdaderamente especial con una tarta personalizada de
+                    DulcesSiSaFashion. ¡Contáctanos hoy y comencemos a diseñar juntos!</p>
+
+                <div class="text-center mt-6">
+                    <a href="#pedido" onclick="closeSpecialtyModal('cumpleanos')"
+                        class="inline-block bg-gradient-to-r from-purple-500 to-pink-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl transition transform hover:scale-105">
+                        <i class="fab fa-whatsapp mr-2"></i>Pide Tu Tarta Personalizada
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-eventos">
+        <div class="modal-content">
+            <button onclick="closeSpecialtyModal('eventos')" class="modal-close">&times;</button>
+            <h2 class="text-3xl font-bold mb-6 text-blue-600">✨ Tartas Para Eventos Especiales</h2>
+            <div class="legal-content">
+                <h3>Bautizos, Comuniones, Aniversarios y Celebraciones Memorables</h3>
+                <p>La vida está llena de momentos especiales que merecen ser celebrados con dulzura y estilo. En
+                    DulcesSiSaFashion, creamos tartas artesanales para todo tipo de eventos importantes: bautizos,
+                    primeras comuniones, confirmaciones, aniversarios, baby showers, graduaciones, eventos corporativos,
+                    y cualquier otra celebración que desees hacer inolvidable.</p>
+
+                <h3>Bautizos y Primeras Comuniones</h3>
+                <p>Estos eventos religiosos marcan momentos sagrados en la vida de los niños. Creamos tartas con diseños
+                    delicados que reflejan la pureza y la importancia de la ocasión. Utilizamos colores suaves como
+                    blanco, crema, y pastel, decorados con símbolos religiosos elegantes: cruces, cálices, palomas,
+                    biblias, y ángeles, todos elaborados con el máximo cuidado y respeto.</p>
+
+                <p>Las flores comestibles blancas, los detalles en dorado o plateado, y los acabados inmaculados hacen
+                    que estas tartas sean dignas de la solemnidad del evento. Podemos personalizar con el nombre del
+                    niño o niña y la fecha de la celebración.</p>
+
+                <h3>Aniversarios de Amor</h3>
+                <p>Celebra años de amor y compromiso con una tarta elegante y romántica. Desde bodas de plata hasta
+                    bodas de oro, creamos diseños sofisticados con números dorados, flores románticas, y detalles que
+                    reflejan la madurez y belleza de una relación duradera. Los sabores clásicos y gourmet complementan
+                    perfectamente estas celebraciones especiales.</p>
+
+                <h3>Baby Showers</h3>
+                <p>La dulce espera merece una tarta adorable. Creamos diseños tiernos en rosa para niñas, azul para
+                    niños, o colores neutros si es una sorpresa. Decoraciones con patucos, chupetes, bloques de bebé,
+                    carritos, y ositos de peluche, todos elaborados en fondant comestible, hacen que estas tartas sean
+                    perfectas para celebrar la llegada del nuevo miembro de la familia.</p>
+
+                <h3>Graduaciones y Logros</h3>
+                <p>Brinda por el éxito académico con tartas que honran el esfuerzo y dedicación. Birretes, diplomas,
+                    libros, y los colores de la institución educativa se combinan en diseños que celebran este
+                    importante hito. Perfectas para graduaciones de secundaria, universidad, o posgrado.</p>
+
+                <h3>Eventos Corporativos</h3>
+                <p>Para empresas que buscan impresionar en eventos corporativos, aniversarios de empresas, lanzamientos
+                    de productos, o celebraciones de equipo, creamos tartas profesionales y elegantes que reflejan la
+                    marca y el mensaje de tu compañía. Logos comestibles, colores corporativos, y diseños modernos que
+                    causarán impresión.</p>
+
+                <h3>Personalización Sin Límites</h3>
+                <p>Sea cual sea tu evento especial, en DulcesSiSaFashion lo hacemos posible. Trabajamos contigo para
+                    entender la ocasión, el número de invitados, el tema, y tus preferencias, creando una tarta que no
+                    solo será deliciosa sino también el centro de conversación de tu celebración.</p>
+
+                <p>¡Contáctanos hoy y hagamos que tu evento especial sea aún más memorable con una tarta única y
+                    deliciosa!</p>
+
+                <div class="text-center mt-6">
+                    <a href="#pedido" onclick="closeSpecialtyModal('eventos')"
+                        class="inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl transition transform hover:scale-105">
+                        <i class="fab fa-whatsapp mr-2"></i>Cuéntanos Tu Evento
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cake Video Modal -->
+    <div class="modal-overlay video-modal" id="cake-modal">
+        <div class="modal-content">
+            <button onclick="closeCakeModal()" class="modal-close">&times;</button>
+            <video id="cake-video" controls muted style="width: 100%; border-radius: 12px; margin-bottom: 20px;">
+                <source src="" type="video/mp4">
+            </video>
+            <h3 id="cake-title" class="text-2xl font-bold mb-4 text-pink-600"></h3>
+            <p id="cake-description" class="video-description text-gray-700"></p>
+            <div class="text-center mt-6">
+                <a href="#pedido" onclick="closeCakeModal()"
+                    class="inline-block bg-gradient-to-r from-pink-500 to-rose-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl transition transform hover:scale-105">
+                    <i class="fab fa-whatsapp mr-2"></i>¡Solicita Esta Tarta Ahora!
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Legal Modals -->
+    <div class="modal-overlay legal-modal" id="legal-privacidad">
+        <div class="modal-content">
+            <button onclick="closeLegalModal('privacidad')" class="modal-close">&times;</button>
+            <h2 class="text-3xl font-bold mb-6 text-pink-600">Política de Privacidad</h2>
+            <div class="legal-content">
+                <p><strong>Última actualización:</strong> Febrero 2026</p>
+
+                <h3>Responsable del Tratamiento</h3>
+                <p><strong>Titular:</strong> Slavka Nikolova Tsekova<br>
+                    <strong>Email:</strong> silvian495@gmail.com<br>
+                    <strong>Ubicación:</strong> Aguilafuente, Segovia, España
+                </p>
+
+                <h3>1. Información que Recopilamos</h3>
+                <p>En DulceSiSaFashion, respetamos tu privacidad. NO recopilamos datos personales a través de este sitio
+                    web. Únicamente cuando tú decides contactarnos por WhatsApp para solicitar información sobre
+                    nuestras tartas, podemos recopilar:</p>
+                <ul>
+                    <li>Número de teléfono (WhatsApp) - Solo cuando tú nos contactas</li>
+                    <li>Información que voluntariamente compartas sobre tu evento</li>
+                </ul>
+
+                <h3>2. Uso de la Información</h3>
+                <p>La información que compartes con nosotros a través de WhatsApp se utiliza exclusivamente para:</p>
+                <ul>
+                    <li>Responder a tus consultas</li>
+                    <li>Diseñar y crear tu tarta personalizada</li>
+                    <li>Comunicarnos contigo sobre tu pedido</li>
+                    <li>Coordinar la entrega o recogida</li>
+                </ul>
+
+                <h3>3. Protección de Datos</h3>
+                <p>Nos comprometemos a proteger tu información personal. No compartimos, vendemos ni alquilamos tus
+                    datos a terceros. Toda la información se trata de forma confidencial y solo es accesible por
+                    personal autorizado.</p>
+
+                <h3>4. Cookies</h3>
+                <p>Este sitio web utiliza únicamente cookies técnicas necesarias para su correcto funcionamiento. No
+                    utilizamos cookies de seguimiento ni de terceros para publicidad.</p>
+
+                <h3>5. Tus Derechos</h3>
+                <p>Tienes derecho a:</p>
+                <ul>
+                    <li>Acceder a tus datos personales</li>
+                    <li>Rectificar información incorrecta</li>
+                    <li>Solicitar la eliminación de tus datos</li>
+                    <li>Oponerte al procesamiento de tus datos</li>
+                </ul>
+
+                <h3>6. Contacto</h3>
+                <p>Para cualquier consulta sobre privacidad, puedes contactar con:<br>
+                    <strong>Slavka Nikolova Tsekova</strong><br>
+                    Email: silvian495@gmail.com<br>
+                    WhatsApp: a través del botón de contacto de este sitio
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay legal-modal" id="legal-cookies">
+        <div class="modal-content">
+            <button onclick="closeLegalModal('cookies')" class="modal-close">&times;</button>
+            <h2 class="text-3xl font-bold mb-6 text-pink-600">Política de Cookies</h2>
+            <div class="legal-content">
+                <h3>¿Qué son las Cookies?</h3>
+                <p>Las cookies son pequeños archivos de texto que los sitios web almacenan en tu dispositivo para
+                    recordar información sobre tu visita. Nos ayudan a ofrecerte una mejor experiencia de navegación.
+                </p>
+
+                <h3>Tipos de Cookies que Utilizamos</h3>
+
+                <h4>Cookies Esenciales</h4>
+                <p>Estas cookies son necesarias para el funcionamiento básico del sitio web y no se pueden desactivar.
+                    No almacenan información personal identificable.</p>
+
+                <h4>Cookies de Rendimiento</h4>
+                <p>Nos ayudan a entender cómo los visitantes interactúan con nuestro sitio web, permitiéndonos mejorar
+                    la experiencia del usuario.</p>
+
+                <h4>Cookies de Funcionalidad</h4>
+                <p>Permiten que el sitio web recuerde las elecciones que haces (como tu idioma o región) para
+                    proporcionar funciones mejoradas y más personales.</p>
+
+                <h3>Cookies de Terceros</h3>
+                <p>Podemos utilizar servicios de terceros (como Google Fonts o Font Awesome) que pueden establecer sus
+                    propias cookies. Estas están sujetas a las políticas de privacidad de esos terceros.</p>
+
+                <h3>Cómo Gestionar las Cookies</h3>
+                <p>Puedes controlar y/o eliminar las cookies según desees. Puedes eliminar todas las cookies que ya
+                    están en tu dispositivo y configurar la mayoría de los navegadores para que no se instalen. Sin
+                    embargo, si haces esto, es posible que tengas que ajustar manualmente algunas preferencias cada vez
+                    que visites un sitio y que algunos servicios y funcionalidades no funcionen.</p>
+
+                <h3>Instrucciones para Navegadores Populares:</h3>
+                <ul>
+                    <li><strong>Google Chrome:</strong> Configuración > Privacidad y seguridad > Cookies</li>
+                    <li><strong>Firefox:</strong> Opciones > Privacidad y seguridad > Cookies</li>
+                    <li><strong>Safari:</strong> Preferencias > Privacidad > Cookies</li>
+                    <li><strong>Edge:</strong> Configuración > Cookies y permisos del sitio</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay legal-modal" id="legal-aviso">
+        <div class="modal-content">
+            <button onclick="closeLegalModal('aviso')" class="modal-close">&times;</button>
+            <h2 class="text-3xl font-bold mb-6 text-pink-600">Aviso Legal</h2>
+            <div class="legal-content">
+                <h3>1. Información General</h3>
+                <p><strong>Titular:</strong> DulcesSiSaFashion<br>
+                    <strong>Ubicación:</strong> Aguilafuente, Segovia, España<br>
+                    <strong>Actividad:</strong> Repostería artesanal y tartas personalizadas
+                </p>
+
+                <h3>2. Objeto</h3>
+                <p>El presente aviso legal regula el uso del sitio web de DulcesSiSaFashion. El acceso y uso del sitio
+                    web implica la aceptación plena de este aviso legal.</p>
+
+                <h3>3. Servicios</h3>
+                <p>DulcesSiSaFashion se dedica a la elaboración artesanal de tartas personalizadas para bodas,
+                    cumpleaños, eventos especiales y todo tipo de celebraciones. Todos nuestros productos son hechos a
+                    mano con ingredientes de calidad premium.</p>
+
+                <h3>4. Propiedad Intelectual</h3>
+                <p>Todos los contenidos de este sitio web, incluyendo textos, imágenes, diseños, logos y videos, son
+                    propiedad de DulcesSiSaFashion o están utilizados con el permiso correspondiente. Queda prohibida su
+                    reproducción total o parcial sin autorización expresa.</p>
+
+                <h3>5. Responsabilidad</h3>
+                <p>DulcesSiSaFashion no se hace responsable de:</p>
+                <ul>
+                    <li>La disponibilidad continua del sitio web</li>
+                    <li>Errores u omisiones en los contenidos</li>
+                    <li>Daños derivados del uso indebido del sitio web</li>
+                    <li>Enlaces a sitios web de terceros</li>
+                </ul>
+
+                <h3>6. Pedidos y Presupuestos</h3>
+                <p>Los pedidos se formalizan mediante contacto por WhatsApp. Los presupuestos son orientativos y pueden
+                    variar según los detalles específicos del diseño final. Los plazos de entrega se acordarán
+                    individualmente para cada pedido.</p>
+
+                <h3>7. Precios</h3>
+                <p>Todos los precios están sujetos a cambios sin previo aviso. Los precios finales se confirmarán en el
+                    momento de formalizar el pedido.</p>
+
+                <h3>8. Modificaciones</h3>
+                <p>DulcesSiSaFashion se reserva el derecho de modificar este aviso legal en cualquier momento. Los
+                    cambios entrarán en vigor desde su publicación en el sitio web.</p>
+
+                <h3>9. Legislación Aplicable</h3>
+                <p>Este aviso legal se rige por la legislación española. Para cualquier controversia, las partes se
+                    someterán a los juzgados y tribunales de Segovia, España.</p>
+
+                <h3>10. Contacto</h3>
+                <p>Para cualquier consulta legal, puedes contactarnos por WhatsApp o visitarnos en Aguilafuente,
+                    Segovia.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="scripts.js"></script>
+</body>
+
+</html>
