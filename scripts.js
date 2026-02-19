@@ -19,12 +19,11 @@ function initVideoSlider() {
     // Show first slide
     showVideoSlide(0);
 
-    // Auto-advance every 15 seconds
+    // Auto-advance every 7 seconds
     videoSliderInterval = setInterval(() => {
         nextVideoSlide();
-    }, 15000);
+    }, 7000);
 }
-
 function showVideoSlide(index) {
     if (videoSlides.length === 0) return;
 
@@ -37,7 +36,7 @@ function showVideoSlide(index) {
         currentVideoSlide = index;
     }
 
-    // Hide all slides
+    // Hide all slides, show active
     videoSlides.forEach((slide, i) => {
         slide.style.display = i === currentVideoSlide ? 'block' : 'none';
         const video = slide.querySelector('video');
@@ -49,7 +48,15 @@ function showVideoSlide(index) {
             }
         }
     });
+
+    // Ambient background color: read data-bg from active slide
+    const heroSection = document.getElementById('hero');
+    const activeBg = videoSlides[currentVideoSlide].dataset.bg;
+    if (heroSection && activeBg) {
+        heroSection.style.background = activeBg;
+    }
 }
+
 
 function nextVideoSlide() {
     showVideoSlide(currentVideoSlide + 1);
@@ -104,31 +111,121 @@ function initSpecialtyModals() {
 let currentCakeSlide = 0;
 let cakeSliderInterval;
 const cakesData = [
-    { img: '1.jpeg', video: '1.mp4', title: 'Tarta Princesa Rosa - Cumpleaños Mágico', desc: 'Esta exquisita tarta de dos pisos es el sueño hecho realidad para cualquier pequeña princesa. Decorada con delicados tonos rosados, buttercream artesanal y una corona de cristal brillante, cada detalle está cuidadosamente diseñado para crear momentos inolvidables. Las mariposas comestibles y las perlas de azúcar añaden un toque de elegancia y fantasía. Perfecta para cumpleaños de 3 a 10 años, esta creación personalizada puede adaptarse a los colores y temas favoritos de tu pequeña. En DulcesSiSaFashion, transformamos cada celebración en una experiencia mágica. ¿Lista para sorprender? Contáctanos y diseñemos juntas la tarta perfecta.' },
-    { img: '2.jpeg', video: '2.mp4', title: 'Tarta Elegante de Chocolate y Flores', desc: 'Una obra maestra de repostería que combina la elegancia clásica con toques modernos. Esta tarta de múltiples capas presenta un delicado trabajo de flores de azúcar hechas a mano y un acabado en chocolate premium que derrite los sentidos. Ideal para bodas íntimas, aniversarios especiales o celebraciones de cumpleaños sofisticadas. El interior esconde capas de bizcocho húmedo de chocolate belga y crema de frambuesa, creando una experiencia de sabor inolvidable. Cada detalle es meticulosamente elaborado para garantizar que tu evento sea verdaderamente único.' },
-    { img: '3.jpeg', video: '3.mp4', title: 'Tarta Temática de Unicornio - Fantasía Dulce', desc: 'Déjate llevar a un mundo mágico con esta espectacular tarta de unicornio. Diseñada con colores pastel vibrantes, crines de merengue esponjoso y detalles dorados comestibles, esta creación es perfecta para cumpleaños infantiles llenos de fantasía. El cuerno brillante y las orejas delicadas están hechos completamente de fondant modelado a mano. Disponible en sabores de vainilla, fresa o chocolate, esta tarta no solo impresiona visualmente sino que también deleita el paladar. Personalizable con el nombre y la edad de la celebrante.' },
-    { img: '4.jpeg', video: '4.mp4', title: 'Tarta de Boda Clásica con Flores Naturales', desc: 'La elegancia atemporal define esta impresionante tarta de boda de tres pisos. Decorada con flores naturales frescas cuidadosamente seleccionadas y un delicado trabajo de royal icing, esta creación es el centro de atención perfecto para tu día especial. El diseño minimalista pero sofisticado se adapta a cualquier estilo de boda, desde bodas en jardín hasta celebraciones de salón elegantes. Cada piso puede tener un sabor diferente para complacer a todos tus invitados. Trabajamos contigo para personalizar cada detalle según tu visión.' },
-    { img: '5.jpeg', video: '5.mp4', title: 'Tarta de Cumpleaños con Macarons Franceses', desc: 'Una explosión de color y sabor que combina la tradición de la tarta de cumpleaños con la sofisticación de los macarons franceses. Esta creación presenta una drip de chocolate artesanal, macarons de diferentes sabores cuidadosamente dispuestos y decoraciones de crema de mantequilla suiza. Perfecta para adolescentes y adultos que buscan algo elegante pero divertido. Los macarons pueden personalizarse en los colores y sabores de tu preferencia. Una obra de arte comestible que sorprenderá a todos tus invitados y creará recuerdos inolvidables.' },
-    { img: '6.jpeg', video: '6.mp4', title: 'Tarta Boho Chic para Bodas al Aire Libre', desc: 'Inspirada en la naturaleza y el estilo bohemio, esta tarta es perfecta para bodas rústicas o al aire libre. El acabado semi-naked deja ver las capas del bizcocho, mientras que las flores comestibles y las decoraciones de hojas de oro dan un toque de elegancia natural. Cada elemento está diseñado para complementar tu celebración al aire libre. Disponible en sabores como vainilla-lavanda, limón-romero o chocolate-naranja. Esta tarta no solo es hermosa sino también deliciosa, utilizando ingredientes frescos y de calidad premium.' },
-    { img: '7.jpeg', video: '7.mp4', title: 'Tarta de Princesa Disney Personalizada', desc: 'Haz realidad los sueños de tu pequeña con esta tarta inspirada en princesas Disney. Cada detalle está meticulosamente diseñado para capturar la magia de sus personajes favoritos. Desde tiaras comestibles hasta vestidos de fondant trabajados a mano, esta creación es verdaderamente espectacular. Podemos personalizar la tarta con la princesa favorita de tu hija: Elsa, Bella, Ariel o cualquier otra. El interior puede ser de vainilla, fresa o chocolate, decorado con rellenos de crema y frutas frescas. Una tarta que hará brillar sus ojos de emoción.' },
-    { img: '8.jpeg', video: '8.mp4', title: 'Tarta Minimalista Moderna - Elegancia Pura', desc: 'Para aquellos que aprecian la belleza en la simplicidad, esta tarta minimalista moderna es la elección perfecta. Con líneas limpias, colores neutros sofisticados y decoraciones geométricas sutiles, esta creación es ideal para bodas contemporáneas, aniversarios elegantes o eventos corporativos. El acabado perfectamente liso requiere horas de trabajo experto. A pesar de su apariencia simple, cada detalle está cuidadosamente planificado. Disponible en sabores gourmet como vainilla-cardamomo, chocolate-sal marina o pistacho-frambuesa.' },
-    { img: '9.jpeg', video: '9.mp4', title: 'Tarta Arcoíris de Cumpleaños - Alegría Colorida', desc: 'Una explosión de color y felicidad que hace que cada cumpleaños sea más especial. Esta tarta arcoíris presenta capas de bizcocho de colores vibrantes, crema de mantequilla esponjosa y decoraciones que hacen sonreír a todos. Perfecta para cumpleaños infantiles llenos de energía y alegría. Cuando se corta, revela las hermosas capas de colores que sorprenden y deleitan. Podemos personalizar con el nombre, edad y topper especial. Los sabores pueden variar desde vainilla clásica hasta combinaciones más aventureras. ¡Una fiesta en cada bocado!' },
-    { img: '10.jpeg', video: '10.mp4', title: 'Tarta de Comunión con Cruz Elegante', desc: 'Celebra este momento sagrado con una tarta diseñada especialmente para primeras comuniones. Decorada con símbolos religiosos delicados, flores blancas puras y detalles en dorado o plateado, esta creación refleja la importancia del evento. El diseño puede personalizarse con el nombre del niño o niña y la fecha de la celebración. Utilizamos ingredientes de la más alta calidad para crear un sabor tan memorable como la ocasión. Disponible en diferentes tamaños para acomodar desde reuniones íntimas hasta grandes celebraciones familiares.' },
-    { img: '11.jpeg', video: '11.mp4', title: 'Tarta de Fútbol para Fanáticos del Deporte', desc: 'Para el amante del fútbol, esta tarta temática captura toda la emoción del deporte. Diseñada como un campo de fútbol completo o con el escudo de su equipo favorito, cada detalle es trabajado con precisión. Podemos personalizar con los colores del equipo, número de jugador y nombre. El balón de fútbol comestible en la parte superior es completamente realista. Perfecta para cumpleaños de niños, adolescentes y adultos apasionados por el fútbol. Una celebración que combina dos pasiones: el fútbol y el dulce sabor del éxito.' },
-    { img: '12.jpeg', video: '12.mp4', title: 'Tarta Vintage con Encaje Comestible', desc: 'La nostalgia y la elegancia se encuentran en esta hermosa tarta vintage. El encaje comestible hecho a mano, las flores de azúcar en tonos pastel y los detalles de perlas crean una estética romántica perfecta para bodas vintage, té de la tarde elegante o aniversarios especiales. Cada pieza de encaje es cuidadosamente aplicada para crear un efecto tridimensional impresionante. Los sabores clásicos como vainilla-fresas con crema o limón-lavanda complementan perfectamente el estilo vintage. Una tarta que transporta a otra época.' },
-    { img: '13.jpeg', video: '13.mp4', title: 'Tarta de Dinosaurios - Aventura Prehistórica', desc: 'Viaja millones de años atrás con esta emocionante tarta de dinosaurios. Perfecta para pequeños paleontólogos, presenta dinosaurios modelados a mano, volcanes en erupción de chocolate y vegetación comestible. El escenario prehistórico está lleno de detalles que fascinarán a los niños. Podemos incluir el dinosaurio favorito del cumpleañero: T-Rex, Triceratops, Velociraptor y más. El interior esconde deliciosas capas de bizcocho y rellenos que harán rugir de felicidad. Una aventura dulce que nunca olvidarán.' },
-    { img: '14.jpeg', video: '14.mp4', title: 'Tarta de Quinceañera Rosa y Dorado', desc: 'Celebra este momento único en la vida de una joven con una tarta tan especial como ella. Esta elegante creación combina tonos rosa suave con detalles dorados brillantes, perfectos para una quinceañera moderna. Las flores de azúcar, la corona decorativa y los detalles en fondant reflejan la transición a la adultez con gracia y estilo. Disponible en múltiples pisos para eventos grandes. Podemos personalizar completamente el diseño para que coincida con el tema y los colores de la celebración. Un dulce comienzo para una nueva etapa.' },
-    { img: '15.jpeg', video: '15.mp4', title: 'Tarta de Superhéroes - Poder y Dulzura', desc: 'Para el pequeño héroe de la casa, esta tarta de superhéroes trae toda la acción y emoción. Ya sea Spiderman, Batman, Los Vengadores o cualquier otro superhéroe favorito, creamos diseños dinámicos que capturan la esencia del personaje. Los colores vibrantes, los logos icónicos y las figuras modeladas a mano hacen que esta tarta sea el centro de atención de cualquier fiesta. Disponible en diferentes tamaños y sabores. ¡Una tarta con superpoderes de sabor que salvará el día de cualquier cumpleaños!' },
-    { img: '16.jpeg', video: '16.mp4', title: 'Tarta Rústica con Frutas Frescas', desc: 'La belleza de lo natural se celebra en esta tarta rústica decorada con frutas frescas de temporada. El estilo semi-naked permite apreciar las capas del bizcocho mientras que las frutas aportan color, frescura y un toque saludable. Perfecta para bodas campestres, celebraciones de verano o cualquier evento que busque una estética natural y elegante. Utilizamos solo frutas frescas seleccionadas en su punto óptimo de maduración. Los sabores son ligeros y refrescantes, ideales para climas cálidos. Una celebración de la naturaleza en cada bocado.' },
-    { img: '17.jpeg', video: '17.mp4', title: 'Tarta de Baby Shower - Dulce Espera', desc: 'Celebra la llegada del nuevo bebé con esta adorable tarta de baby shower. Disponible en rosa para niña, azul para niño o colores neutros si es una sorpresa. Decorada con elementos tiernos como patucos, chupetes, bloques de bebé y ositos, todo elaborado en fondant comestible. El diseño puede personalizarse con el nombre del bebé si ya se conoce. Sabores suaves y delicados perfectos para esta celebración especial. Una tarta que endulza la espera y crea recuerdos hermosos de este momento único.' },
-    { img: '18.jpeg', video: '18.mp4', title: 'Tarta de Graduación - Éxito Académico', desc: 'Brinda por los logros académicos con esta tarta diseñada para celebrar graduaciones. Decorada con birretes, diplomas enrollados, libros y los colores de la institución educativa, esta creación honra el esfuerzo y dedicación del graduado. Podemos personalizar con el nombre, año de graduación y carrera. Disponible para graduaciones de secundaria, universidad o posgrado. Los sabores sofisticados reflejan la madurez y el éxito alcanzado. ¡Una dulce forma de celebrar el fin de una etapa y el comienzo de nuevas aventuras!' },
-    { img: '19.jpeg', video: '19.mp4', title: 'Tarta Drip de Oreo y Chocolate', desc: 'Una tentación irresistible para los amantes del chocolate y las galletas Oreo. Esta espectacular tarta presenta un drip de chocolate brillante, galletas Oreo enteras y trituradas, y decoraciones de crema de mantequilla perfectamente ejecutadas. El contraste entre el chocolate oscuro y la crema blanca crea un impacto visual impresionante. Perfecta para cumpleaños de adolescentes y adultos que buscan algo indulgente y delicioso. Cada bocado es una explosión de sabor a chocolate y galleta. ¡Advertencia: puede causar adicción dulce!' },
-    { img: '20.jpeg', video: '20.mp4', title: 'Tarta Floral Primaveral - Jardín Comestible', desc: 'La primavera cobra vida en esta hermosa tarta decorada con un jardín de flores comestibles. Cada pétalo está delicadamente elaborado en azúcar, creando rosas, peonías, dalias y más flores realistas. Los tonos pastel y las hojas verdes crean una composición natural y elegante. Perfecta para bodas primaverales, cumpleaños elegantes o celebraciones de aniversario. El diseño puede adaptarse a tus flores favoritas o a las flores de temporada disponibles. Un jardín secreto de sabor y belleza que florecerá en tu celebración.' },
-    { img: '21.jpeg', video: '21.mp4', title: 'Tarta de Sirena - Bajo el Mar', desc: 'Sumérgete en un mundo submarino mágico con esta encantadora tarta de sirena. Diseñada con escalas brillantes comestibles, conchas de azúcar, estrellas de mar y una cola de sirena espectacular, esta creación es perfecta para pequeñas soñadoras. Los tonos de azul, turquesa y púrpura evocan las profundidades del océano. Podemos personalizar con el nombre de la cumpleañera y su edad. Los sabores pueden incluir combinaciones refrescantes como coco-piña o vainilla-frambuesa azul. ¡Una aventura submarina deliciosa!' },
-    { img: '22.jpeg', video: '22.mp4', title: 'Tarta de Aniversario con Números Dorados', desc: 'Celebra años de amor y compromiso con esta elegante tarta de aniversario. Los números dorados en la parte superior indican los años juntos, mientras que las decoraciones florales y los detalles sofisticados reflejan la madurez de la relación. Perfecta para bodas de plata, oro o cualquier aniversario significativo. El diseño puede ser romántico y clásico o moderno y minimalista según tu preferencia. Sabores gourmet que han resistido el paso del tiempo. Una tarta que honra el amor duradero y crea nuevos recuerdos dulces.' },
-    { img: '23.jpeg', video: '23.mp4', title: 'Tarta de Cactus y Suculentas - Desierto Dulce', desc: 'Para los amantes de las plantas y el estilo boho, esta tarta decorada con cactus y suculentas comestibles es única y adorable. Cada planta está meticulosamente modelada en fondant con detalles realistas como espinas (no punzantes), flores y diferentes tonos de verde. Perfecta para cumpleaños de adultos con estilo único o baby showers con temática de cactus. El diseño es moderno, fresco y diferente a cualquier otra tarta tradicional. Una forma dulce de celebrar sin necesitar regar las plantas después.' },
-    { img: '24.jpeg', video: '24.mp4', title: 'Tarta de Construcción - Diversión con Sabor', desc: 'Para el pequeño constructor, esta tarta temática trae toda la diversión de las obras. Completa con camiones de volteo, excavadoras, conos de tráfico y tierra comestible (migas de galleta), esta creación es perfecta para niños fascinados por los vehículos de construcción. Podemos incluir el nombre del cumpleañero en letreros de obra. El diseño es colorido, divertido y comestible en su totalidad. Sabores que construyen sonrisas y recuerdos. ¡Atención: zona de celebración en construcción!' },
-    { img: '25.jpeg', video: '25.mp4', title: 'Tarta Elegante de Oro y Blanco - Sofisticación Pura', desc: 'La sofisticación alcanza su máxima expresión en esta tarta de oro y blanco. Con detalles de hoja de oro comestible, perlas de azúcar y un acabado inmaculadamente liso, esta creación es perfecta para eventos de alto nivel: bodas de lujo, galas, eventos corporativos importantes o aniversarios significativos. El contraste entre el blanco puro y los acentos dorados crea un impacto visual inolvidable. Disponible en sabores premium que complementan la elegancia del diseño. Una tarta digna de la realeza.' }
+    {
+        img: '1.jpeg', video: '1.mp4',
+        title: '🌸 Tarta Princesa Rosa - Magia de Vainilla con Purpurina',
+        desc: 'Una tarta de ensueño para tu pequeña princesa, elaborada artesanalmente con ingredientes de primera calidad. Cada capa esconde una sorpresa de sabor y color que hará brillar sus ojos de emoción. El bizcocho de vainilla, suave y esponjoso, se combina con una crema de chocolate aterciopelada que derrite el corazón en cada bocado.\n\n🧁 Ingredientes:\n• Bizcochos de vainilla esponjosos, húmedos y aromáticos\n• Relleno: crema de chocolate fino y crema de vainilla suave\n• Cubierta de buttercream de merengue suizo y enchanted cream\n• Decorada con purpurina comestible plateada y rosa\n• Mariposas, lazos rosas y perlas comestibles hechas a mano\n\n✨ Cada detalle está pensado para crear un momento mágico e inolvidable. Perfecta para cumpleaños, comuniones o cualquier celebración especial. ¡Haz que su día sea perfecto!'
+    },
+    {
+        img: '2.jpeg', video: '2.mp4',
+        title: '🍫 Tarta de Chocolate y Flores - Ganache de Lujo',
+        desc: 'Una obra maestra de repostería que fusiona el intenso sabor del chocolate con la elegancia de las flores comestibles. El ganache brillante cubre capas alternadas que ofrecen distintas texturas y matices de chocolate en cada porción. Una tarta que conquista con la vista antes de probarla.\n\n🧁 Ingredientes:\n• Bizcochos de chocolate negro intenso y vainilla en capas\n• Relleno: crema de chocolate premium de alta calidad\n• Cobertura ganache de chocolate brillante y sedoso\n• Swirls de crema de chocolate y virutas de chocolate blanco\n• Flores comestibles artesanales como toque final de lujo\n\n✨ Perfecta para bodas íntimas, aniversarios especiales o cualquier celebración sofisticada. El chocolate nunca había sido tan elegante. ¡Pídela ahora!'
+    },
+    {
+        img: '3.jpeg', video: '3.mp4',
+        title: '🎅 Tarta Papa Noël - Fantasia de Vainilla y Chocolate',
+        desc: 'Una tarta navideña llena de magia y sabor, perfecta para celebrar en familia el espíritu de la Navidad. El bizcocho de vainilla envuelto en ganache de chocolate recuerda los mejores chocolates calientes de invierno, y la decoración navideña la hace irresistible.\n\n🧁 Ingredientes:\n• Bizcocho de vainilla artesanal esponjoso y aromático\n• Relleno: crema de chocolate cremosa y crema pastelera clásica\n• Cobertura ganache de chocolate oscuro y enchanted cream\n• Figura decorativa de Papa Noël y detalles navideños festivos\n• Acabado brillante con colores tradicionales de la Navidad\n\n✨ Diseñada con todo el espíritu navideño para hacer de tu celebración algo único y delicioso. La magia de la Navidad en versión comestible. ¡Sorprende a todos!'
+    },
+    {
+        img: '5.jpeg', video: '5.mp4',
+        title: '💐 Tarta Boho Chic - Rosetones de Nata y Mariposas',
+        desc: 'Tarta de cumpleaños con un estilo bohemio lleno de color y personalidad, perfecta para celebraciones únicas y espíritus libres. Los rosetones en rosa y azul crean un jardín comestible sobre una base de bizcocho de chocolate húmedo que sorprende con su profundidad.\n\n🧁 Ingredientes:\n• Bizcocho de chocolate húmedo y esponjoso de sabor intenso\n• Relleno: crema pastelera artesanal y chocolate blanco cremoso\n• Decoración: rosetones en nata montada de colores rosa y azul\n• Mariposas comestibles como toque mágico y primaveral\n• Sin fondant — acabado natural, ligero y fresco\n\n✨ Una creación única que combina belleza natural y sabor excepcional. Para quien ama lo auténtico y diferente. ¡Ideal para quien ama lo especial!'
+    },
+    {
+        img: '6.jpeg', video: '6.mp4',
+        title: '👸 Tarta Princesa Disney - Flores Azules y Blancas',
+        desc: 'Haz realidad los sueños de tu pequeña con esta tarta inspirada en las princesas Disney, donde la elegancia y la fantasía se unen en cada capa. Las flores azules y blancas crean un jardín encantado sobre un bizcocho de vainilla con relleno de chocolate y fresa irresistible.\n\n🧁 Ingredientes:\n• Bizcocho de vainilla suave, aromático y bien húmedo\n• Relleno: crema de chocolate y crema de fresa natural\n• Acabado liso en buttercream de tonos suaves y delicados\n• Flores artesanales azules y blancas de aspecto elegante\n• Detalles de purpurina comestible para el toque mágico Disney\n\n✨ Diseñada con todo el amor del mundo para que el día más especial sea también el más dulce. El castillo de Disney en versión tarta. ¡Pídela ya!'
+    },
+    {
+        img: '7.jpeg', video: '7.mp4',
+        title: '🕷️ Tarta Spiderman - Enchanted Cream y Fondant',
+        desc: 'Para el superhéroe de la casa, una tarta espectacular de Spiderman llena de sabor, acción y aventura. La tela de araña comestible cubre un interior de crema de chocolate y chocolate blanco que sorprende en cada mordisco. Una obra de repostería heroica para cualquier fan.\n\n🧁 Ingredientes:\n• Base de enchanted cream con textura suave y aireada\n• Relleno: crema de chocolate negro y chocolate blanco cremoso\n• Decoración exterior con nata montada artesanal\n• Muñeco de Spiderman y ojos expresivos modelados en fondant\n• Tela de araña comestible pintada a mano con todo el detalle\n\n✨ Una creación épica que hará rugir de emoción a cualquier fan de Spiderman. ¡Con grandes tartas vienen grandes celebraciones! ¡Reserva tu tarta héroe ahora!'
+    },
+    {
+        img: '8.jpeg', video: '8.mp4',
+        title: '🌈 Tarta Arcoíris de Cumpleaños - Bombones y Cake Drip de Chocolate',
+        desc: 'Una explosión de color y felicidad para una persona muy especial, con capas de sabor y texturas irresistibles que hacen de cada porción una pequeña fiesta. El cake drip de chocolate cae como cascadas de dulzura sobre rosetones y bombones que prometen sorpresas en cada bocado.\n\n🧁 Ingredientes:\n• Bizcocho de chocolate húmedo y rico en sabor\n• Relleno: crema de chocolate y bombones enteros como sorpresa\n• Cake drip de chocolate negro brillante artesanal\n• Rosetones de chocolate con textura sedosa\n• Bombones premium y mariposas comestibles como decoración\n\n✨ Una tarta que sorprende en cada bocado y en cada mirada. Tan colorida y alegre como la persona a quien va dedicada. ¡Celebra lo grande que mereces!'
+    },
+    {
+        img: '9.jpeg', video: '9.mp4',
+        title: '📸 Tarta con Foto - Mármol de Ensueño con Corazones',
+        desc: 'Una tarta única con foto personalizada sobre un elegante bizcocho marmoleado que combina estética sofisticada con sabor artesanal. El marmolado interior refleja la belleza del exterior, y los corazoncitos de chocolate añaden el toque de ternura perfecto para momentos especiales.\n\n🧁 Ingredientes:\n• Bizcocho marmoleado elaborado con técnica artesanal\n• Relleno: crema pastelera clásica, chocolate blanco y bombones escondidos\n• Cobertura de nata montada y ganache de chocolate\n• Corazoncitos decorativos de chocolate belga\n• Foto personalizada en papel comestible de alta resolución\n\n✨ Inmortaliza un momento especial en una tarta deliciosa y visualmente impresionante. Cada foto tiene una historia, esta tarta la celebra con sabor. ¡Pídela con tu foto favorita!'
+    },
+    {
+        img: '10.jpeg', video: '10.mp4',
+        title: '⚽ Tarta del Barça - Topper con Nombre y Año Culé',
+        desc: 'Para los auténticos fanáticos del Fútbol Club Barcelona, una tarta tan apasionada como su equipo y tan dulce como sus victorias. Los colores blaugrana se reflejan en cada detalle decorativo mientras la nata montada enmarca un topper personalizado que hace de esta tarta una pieza única e irrepetible.\n\n🧁 Ingredientes:\n• Bizcocho de vainilla artesanal con miga perfecta y textura húmeda\n• Relleno: crema de fresa natural y crema pastelera clásica\n• Decoración en nata montada con los colores del Barça\n• Topper personalizado con nombre y año del homenajeado\n• Escudo y elementos del club reproducidos con fidelidad artesanal\n\n✨ ¡Visca el Barça! Celebra tu amor por el club con el sabor más dulce. Porque ser culé también se celebra con tarta. ¡Ideal para cualquier culé!'
+    },
+    {
+        img: '11.jpeg', video: '11.mp4',
+        title: '💜 Tarta Lila de Cumpleaños - Dulce de Leche y Ganache Blanco',
+        desc: 'Una tarta de cumpleaños elegante en tonos lila con sabores artesanales que conquistan en cada bocado y enamoran con su presentación delicada. El dulce de leche cremoso convive con el ganache de chocolate blanco para crear una experiencia de sabor equilibrada y sofisticada.\n\n🧁 Ingredientes:\n• Bizcochos de vainilla con textura suave y esponjosa\n• Crema de dulce de leche artesanal, suave e intensa\n• Cobertura: ganache de chocolate blanco en tono liláceo\n• Corazoncitos de chocolate blanco como decoración romántica\n• Topper personalizado con nombre o mensaje especial\n\n✨ Una creación sofisticada y deliciosa para celebrar con estilo. Porque los cumpleaños merecen colores preciosos y sabores irresistibles. ¡Tu cumpleaños merece lo mejor!'
+    },
+    {
+        img: '12.jpeg', video: '12.mp4',
+        title: '🎵 Tarta K-POP Demon Hunters - 2 PISOS de Puro Sabor',
+        desc: 'Una tarta de dos pisos épica inspirada en el universo K-POP de los Demon Hunters, para fans que merecen lo mejor y exigen tartas a la altura de sus ídolos. El primer piso de chocolate con pepitas explota en sabor, equilibrado con el segundo de vainilla y fresa, irresistible como los mejores dúos del K-POP.\n\n🧁 Ingredientes:\n• 2 pisos imponentes con estructura sólida y artesanal\n• Bizcocho de chocolate y vainilla con pepitas de chocolate\n• Relleno: chocolate negro, crema de fresa y bombones sorpresa\n• Cubierta ganache de chocolate y nata con cake drip elegante\n• Topper Demon Hunters, bolitas decorativas y mariposas comestibles\n\n✨ Una tarta tan mítica como tus artistas favoritos. Dos pisos, miles de recuerdos, un sabor épico. ¡Pídela para tu próxima fan party!'
+    },
+    {
+        img: '13.jpeg', video: '13.mp4',
+        title: '❤️ Tarta Corazón Especial - Chocolate y Nata Roja',
+        desc: 'Una tarta cuadrada con un corazoncito especial en el centro, pensada con todo el amor del mundo para una amiga muy especial. El contraste entre la nata roja intensa y el chocolate oscuro crea una imagen poderosa que emociona antes de probarla. El sabor interior con choco bons escondidos es una sorpresa que nadie olvida.\n\n🧁 Ingredientes:\n• Tarta cuadrada de diseño único y atrevido\n• Bizcochos de vainilla con fideos de chocolate integrados\n• Relleno doble: crema pastelera artesanal y choco bons enteros\n• Cobertura: nata montada en rojo intenso y ganache de chocolate\n• Corazoncito de chocolate y cake drip que fluye artesanalmente\n\n✨ Un regalo dulce lleno de sentimiento, perfecto para decirle a alguien cuánto la quieres. Porque el amor también sabe así de bien.'
+    },
+    {
+        img: '14.jpeg', video: '14.mp4',
+        title: '💙 Tarta con Foto Azul - Cake Drip y Nata Bicolor',
+        desc: 'Una tarta con foto personalizada bañada en tonos azules vibrantes, alegre y colorida, perfecta para celebrar a lo grande con alguien muy especial. El cake drip azul cae con elegancia sobre nata bicolor azul y blanca que enmarca la foto impresa con precisión y cariño.\n\n🧁 Ingredientes:\n• Bizcochos alternados de chocolate y vainilla con textura esponjosa\n• Relleno: crema de chocolate blanco sedosa y crema de fresa natural\n• Cake drip azul brillante con acabado espejo artesanal\n• Nata bicolor azul y blanca en degradado hecho a mano\n• Foto personalizada en papel comestible de alta definición\n\n✨ Una creación vibrante y personalizada que sorprenderá a todos los invitados. Tu recuerdo favorito convertido en el postre más especial. ¡Hazlo especial con tu foto!'
+    },
+    {
+        img: '15.jpeg', video: '15.mp4',
+        title: '🐭 Tarta Minnie Mouse - 2 Pisos con Cake Drip Rosa',
+        desc: 'Una tarta de 2 pisos inspirada en la adorable Minnie Mouse, con sabores irresistibles y una decoración mágica que transporta a los más pequeños directo al mundo de Disney. El cake drip rosa que cae suavemente sobre los toppers crea una imagen de cuento que hará gritar de alegría a cualquier niña.\n\n🧁 Ingredientes:\n• 2 pisos perfectamente equilibrados y decorados artesanalmente\n• Bizcocho de vainilla suave y aromático de miga esponjosa\n• Relleno: crema de chocolate y crema de fresa natural\n• Cake drip rosa brillante como firma visual característica\n• Toppers oficiales de Minnie Mouse y rosetones de nata decorativa\n\n✨ Para los más pequeños y sus grandes sueños. Una tarta que lleva la magia de Disney directamente a tu mesa. ¡Hará que todos sonrían de oreja a oreja!'
+    },
+    {
+        img: '16.jpeg', video: '16.mp4',
+        title: '💜 Tarta Rectangular con Foto - 2 Pisos de Nata y Fresas',
+        desc: 'Tarta de 2 pisos rectangular con foto personalizada, elegante y llena de sabor, perfecta para celebraciones memorables que merecen una presentación diferente. El formato rectangular ofrece más porciones y una estética moderna que combina morado y rosa con fresas frescas entre capas.\n\n🧁 Ingredientes:\n• 2 pisos en formato rectangular, moderno y diferenciador\n• Bizcocho de vainilla artesanal con miga suave y húmeda\n• Relleno: nata montada fresca y fresas naturales de temporada\n• Decoración: nata en tonos morado y rosa con efecto degradado\n• Cinta decorativa y foto personalizada en papel comestible\n\n✨ Una tarta que combina elegancia y personalización para hacer de tu celebración algo genuinamente único. Rectangular, especial, irrepetible.'
+    },
+    {
+        img: '17.jpeg', video: '17.mp4',
+        title: '🎓 Tarta Cuadrada BMW - 2 Pisos de Chocolate con Cake Drip',
+        desc: 'Una tarta de dos pisos cuadrada con foto de BMW, perfecta para celebrar logros, graduaciones o cumpleaños de apasionados del motor con estilo y personalidad. El cake drip de chocolate fluye como la adrenalina de una buena conducción sobre un potente bizcocho de chocolate.\n\n🧁 Ingredientes:\n• 2 pisos cuadrados con estructura sólida y elegante\n• Bizcocho de chocolate negro intenso y húmedo\n• Relleno triple: crema de fresa, crema pastelera y bombones escondidos\n• Cake drip de chocolate con acabado profesional brillante\n• Foto personalizada de BMW en papel comestible de alta resolución\n\n✨ Para quien se lo merece todo. Celebra con una tarta tan especial como tu pasión por los coches. ¡Pídela ya!'
+    },
+    {
+        img: '19.jpeg', video: '19.mp4',
+        title: '❄️ Tarta Frozen - Chocolate y Vainilla con Topper Oficial',
+        desc: 'Sumérgete en el mundo mágico de Frozen con esta tarta deliciosa y visualmente espectacular que congela el tiempo en el momento perfecto. El interior de chocolate y vainilla contrasta con la decoración helada de Elsa, mientras el topper oficial añade autenticidad Disney.\n\n🧁 Ingredientes:\n• Bizcocho de chocolate húmedo con interior sorprendente\n• Relleno: crema de chocolate y vainilla en capas alternadas\n• Acabado exterior en tonos azules y blancos glaciales\n• Topper oficial licenciado de Frozen con Elsa y Anna\n• Detalles de purpurina azul comestible para el efecto hielo\n\n✨ Para las pequeñas que sueñan con Elsa y Anna cada día. La magia de Frozen llega a tu mesa con todo su esplendor helado.'
+    },
+    {
+        img: '20.jpeg', video: '20.mp4',
+        title: '👸 Tarta Princesa de 2 Pisos - Muñeca, Bolitas y Mariposas',
+        desc: 'Una tarta de 2 pisos espectacular con muñeca de princesa coronando la cima, perfecta para las más pequeñas que merecen vivir un cuento de hadas. Las bolitas y mariposas comestibles crean un jardín mágico alrededor de la muñeca mientras el interior combina bombones y cremas que deleitan a todos.\n\n🧁 Ingredientes:\n• 2 pisos de bizcocho alternado de chocolate y vainilla\n• Relleno: crema de chocolate, fresa y bombones enteros de sorpresa\n• Decoración artesanal con bolitas de colores y mariposas comestibles\n• Muñeca de princesa como elemento central y protagonista\n• Acabado liso en buttercream con degradado suave\n\n✨ Una tarta como un cuento de hadas que hará brillar los ojos de tu princesa. Dos pisos de magia, amor y sabor. ¡Resérvala ahora!'
+    },
+    {
+        img: '21.jpeg', video: '21.mp4',
+        title: '🥂 Tarta Blanco y Oro - Papel Comestible y Topper Happy Birthday',
+        desc: 'Elegancia y sofisticación en su máxima expresión, una tarta de celebración en blanco y oro puro que impresiona desde el primer momento. Las volutas de nata en oro y blanco combinadas con papel de oro comestible y el topper dorado crean una pieza de repostería digna de alta gama.\n\n🧁 Ingredientes:\n• Bizcocho de chocolate negro con interior profundo y rico\n• Relleno: crema de avellanas artesanal y nata montada\n• Nata decorativa con volutas en tonos oro y blanco\n• Papel de oro comestible aplicado artesanalmente\n• Topper Happy Birthday dorado como símbolo de la celebración\n\n✨ Para celebrar años de amor, logros y momentos únicos con una tarta digna de la mejor ocasión. El lujo también tiene sabor. ¡Reserva la tuya!'
+    },
+    {
+        img: '22.jpeg', video: '22.mp4',
+        title: '🌟 Tarta de Aniversario Blanco y Oro - Números Dorados',
+        desc: 'Una tarta de aniversario exquisita en blanco y oro puro que celebra los años vividos con toda la elegancia que merecen. El bizcocho de chocolate intenso se funde con una crema de avellanas y nata que derrite el corazón, mientras las volutas doradas y el papel de oro crean una pieza digna de un evento de alta gama.\n\n🧁 Ingredientes:\n• Bizcocho de chocolate negro húmedo de sabor profundo e irresistible\n• Relleno: crema de avellanas artesanal y nata montada suave\n• Decoración: nata con volutas en tonos oro y blanco hechas a mano\n• Papel de oro comestible aplicado artesanalmente como toque de lujo\n• Topper Happy Birthday de color oro como corona de la celebración\n\n✨ Para los años que merecen una tarta tan especial como el amor que celebran. Elegancia, sabor y recuerdos en cada porción. ¡Reserva la tuya!'
+    },
+    {
+        img: '23.jpeg', video: '23.mp4',
+        title: '🌵 Tarta de Cactus y Suculentas - Desierto Dulce',
+        desc: 'Para los amantes de las plantas y el estilo boho, esta tarta decorada con cactus y suculentas comestibles es única, original y completamente irresistible. Cada planta está meticulosamente modelada a mano en fondant con detalles tan realistas que harán dudar a más de uno si son de verdad.\n\n🧁 Ingredientes:\n• Bizcocho de vainilla húmedo y esponjoso con miga tierna\n• Relleno: crema pastelera artesanal y crema de chocolate blanco\n• Cobertura de fondant texturizado en tono arena y tierra\n• Cactus y suculentas comestibles modelados a mano en fondant de colores\n• Detalles de azúcar coloreada simulando tierra y arena del desierto\n\n✨ Una tarta tan original como tú, perfecta para quienes aman lo diferente y la belleza de la naturaleza. ¡Única en su estilo!'
+    },
+    {
+        img: '24.jpeg', video: '24.mp4',
+        title: '🚧 Tarta de Construcción - Diversión con Sabor',
+        desc: 'Para el pequeño constructor de la casa, esta tarta temática trae toda la diversión de las obras directamente a la mesa de celebración. Camiones de volteo, excavadoras y tierra comestible hacen de esta tarta una experiencia interactiva que el cumpleañero jamás olvidará.\n\n🧁 Ingredientes:\n• Bizcocho de chocolate intenso y húmedo como base resistente\n• Relleno: crema de chocolate y crema pastelera artesanal\n• Cobertura de galleta triturada simulando tierra de obra\n• Maquinaria de construcción decorativa (camiones, excavadora)\n• Conos de tráfico y señales comestibles modelados en fondant\n\n✨ Una tarta que convierte el cumpleaños en una gran obra de arte. ¡El pequeño constructor se lo merece todo! ¡Pídela ya!'
+    },
+    {
+        img: '25.jpeg', video: '25.mp4',
+        title: '✨ Tarta Elegante de Oro y Blanco - Sofisticación Pura',
+        desc: 'La sofisticación alcanza su máxima expresión en esta tarta de oro y blanco que define lo que significa celebrar con clase. Con detalles de hoja de oro comestible y perlas de azúcar, es una pieza de repostería de alta gama pensada para los momentos más importantes de tu vida.\n\n🧁 Ingredientes:\n• Bizcocho de vainilla premium con textura delicada y suave\n• Relleno: crema de mantequilla francesa y crema de avellanas\n• Cobertura de fondant blanco con acabado inmaculadamente liso\n• Hoja de oro comestible 24K aplicada de forma artesanal\n• Perlas de azúcar doradas y detalles ornamentales en relieve\n\n✨ Para eventos de alto nivel, bodas, aniversarios o cualquier celebración que merezca lo mejor de lo mejor. La elegancia tiene sabor. ¡Reserva la tuya!'
+    }
 ];
 
 function initCakeSlider() {
@@ -411,9 +508,11 @@ function showRandomTestimonial() {
                 <span class="testimonial-name">${testimonial.name}</span>
                 <button class="testimonial-close" onclick="closeTestimonial(this)">×</button>
             </div>
-            <div class="testimonial-rating">${'⭐'.repeat(testimonial.rating)}</div>
+            <div class="testimonial-meta">
+                <span class="testimonial-rating">${'⭐'.repeat(testimonial.rating)}</span>
+                <span class="testimonial-event">${testimonial.event}</span>
+            </div>
             <p class="testimonial-text">${testimonial.text}</p>
-            <div class="testimonial-event">${testimonial.event}</div>
         `;
 
         document.body.appendChild(popup);
@@ -532,13 +631,49 @@ function initSmoothScroll() {
     });
 }
 
-// ========== Mobile Menu Toggle ==========
+// ========== Mobile Menu Toggle (animated hamburger) ==========
 function toggleMobileMenu() {
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (mobileMenu) {
-        mobileMenu.classList.toggle('hidden');
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+
+    const isOpen = menu.classList.contains('open');
+
+    if (isOpen) {
+        menu.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        menu.setAttribute('aria-hidden', 'true');
+    } else {
+        menu.classList.add('open');
+        btn.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        menu.setAttribute('aria-hidden', 'false');
     }
 }
+
+// Close menu on outside click
+document.addEventListener('click', function (e) {
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+    if (!btn.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        menu.setAttribute('aria-hidden', 'true');
+    }
+});
+
+// Close menu on resize to desktop
+window.addEventListener('resize', function () {
+    if (window.innerWidth >= 1024) {
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        if (btn) { btn.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+        if (menu) { menu.classList.remove('open'); menu.setAttribute('aria-hidden', 'true'); }
+    }
+});
 
 // ========== Initialize Everything ==========
 document.addEventListener('DOMContentLoaded', () => {

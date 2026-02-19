@@ -93,6 +93,10 @@ p {
 }
 
 /* ========== Video Slider Enhancements ========== */
+#hero {
+    transition: background 1s ease;
+}
+
 .video-slide {
     position: relative;
     width: 100%;
@@ -104,8 +108,7 @@ p {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.6;
-    /* Lower opacity for text readability */
+    opacity: 0.85;
 }
 
 @media (max-width: 768px) {
@@ -113,6 +116,7 @@ p {
         height: 450px;
     }
 }
+
 
 /* ========== CTA Button Animation ========== */
 @keyframes ctaPulse {
@@ -307,17 +311,14 @@ p {
     position: fixed;
     left: var(--space-lg);
     bottom: 100px;
-    width: 160px;
-    /* Even smaller width */
+    width: 320px;
     background: var(--white);
     border-radius: var(--radius-md);
-    padding: 10px;
-    /* Reduced padding */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    /* Softer shadow */
+    padding: 12px 14px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
     z-index: 9000;
     opacity: 0;
-    transform: translateX(-100%);
+    transform: translateX(-110%);
     transition: all 0.3s ease;
 }
 
@@ -330,70 +331,66 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 6px;
-    /* Reduced margin */
+    margin-bottom: 4px;
 }
 
 .testimonial-name {
     font-weight: 600;
     color: var(--text-primary);
-    font-size: 0.7rem;
-    /* Smaller font */
+    font-size: 0.85rem;
 }
 
 .testimonial-close {
     background: none;
     border: none;
-    font-size: 0.9rem;
-    /* Smaller close button */
+    font-size: 1rem;
     color: var(--text-secondary);
     cursor: pointer;
     padding: 0;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: color var(--transition-fast);
+    flex-shrink: 0;
 }
 
 .testimonial-close:hover {
     color: var(--text-primary);
 }
 
+.testimonial-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
 .testimonial-rating {
     color: #FFD700;
-    margin-bottom: 4px;
-    /* Reduced margin */
-    font-size: 0.6rem;
-    /* Smaller stars */
+    font-size: 0.75rem;
+}
+
+.testimonial-event {
+    font-size: 0.72rem;
+    color: var(--primary-rose-dark);
+    font-weight: 500;
 }
 
 .testimonial-text {
     color: var(--text-secondary);
-    font-size: 0.65rem;
-    /* Smaller text */
-    line-height: 1.4;
-    margin-bottom: 4px;
-    /* Reduced margin */
-}
-
-.testimonial-event {
-    font-size: 0.6rem;
-    /* Smaller event text */
-    color: var(--primary-rose-dark);
-    margin-top: 4px;
-    /* Reduced margin */
-    font-weight: 500;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin-bottom: 0;
 }
 
 @media (max-width: 768px) {
     .testimonial-popup {
-        width: 140px;
-        /* Even smaller on mobile */
+        width: 280px;
         left: var(--space-sm);
         bottom: 90px;
-        padding: 8px;
+        padding: 10px 12px;
     }
 }
 
@@ -579,20 +576,335 @@ a:focus-visible {
     outline-offset: 2px;
 }
 
-/* ========== Mobile Responsive Styles ========== */
+/* ========== Hamburger Menu (Mobile & Tablet) ========== */
 
-/* Mobile Navigation Adjustments */
-.brand-name {
-    font-size: clamp(1.25rem, 4vw, 2rem);
-    white-space: nowrap;
-}
-
-.mobile-menu {
-    animation: slideDown 0.3s ease;
-}
-
-.mobile-menu.hidden {
+#mobile-menu-btn {
     display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    transition: background 0.2s ease;
+}
+
+#mobile-menu-btn:hover {
+    background: rgba(236, 72, 153, 0.08);
+}
+
+#mobile-menu-btn .bar {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #374151;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    margin: 5px 0;
+}
+
+#mobile-menu-btn.open .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+#mobile-menu-btn.open .bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+#mobile-menu-btn.open .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile dropdown animation via max-height */
+#mobile-menu {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.3s ease;
+}
+
+#mobile-menu.open {
+    max-height: 320px;
+    opacity: 1;
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid #f3f4f6;
+    color: #374151;
+    font-weight: 500;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.mobile-menu a:last-child {
+    border-bottom: none;
+}
+
+.mobile-menu a:hover {
+    color: #ec4899;
+    padding-left: 6px;
+}
+
+/* Brand name responsive */
+.brand-name {
+    font-size: clamp(1.1rem, 3.5vw, 2rem);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* ========== TABLET (768px - 1023px): hamburger ========== */
+@media (max-width: 1023px) {
+    #mobile-menu-btn {
+        display: block;
+    }
+}
+
+/* ========== DESKTOP (1024px+): keep original ========== */
+@media (min-width: 1024px) {
+
+    /* Ocultar hamburguesa y menu mobile */
+    #mobile-menu-btn {
+        display: none !important;
+    }
+
+    #mobile-menu {
+        display: none !important;
+    }
+
+    /* Restaurar menu de navegacion desktop (anula .hidden de custom CSS) */
+    nav .hidden {
+        display: revert;
+    }
+
+    nav .hidden.md\:flex,
+    nav div.hidden {
+        display: flex !important;
+    }
+
+    nav a.hidden {
+        display: inline-flex !important;
+    }
+
+    /* Ocultar CTA y botones solo-mobile en desktop */
+    nav .md\:hidden {
+        display: none !important;
+    }
+}
+
+/* ========== Hero - Mobile & Tablet ========== */
+@media (max-width: 1023px) {
+    .video-slide {
+        height: 480px;
+    }
+
+    #hero h1 {
+        font-size: clamp(1.6rem, 5.5vw, 2.8rem) !important;
+        line-height: 1.2 !important;
+        margin-bottom: 1rem !important;
+    }
+
+    #hero p {
+        font-size: clamp(0.9rem, 3vw, 1.1rem) !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    #hero a {
+        font-size: clamp(0.85rem, 2.8vw, 1rem) !important;
+        padding: 10px 22px !important;
+    }
+
+    #hero .max-w-4xl {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-slide {
+        height: 380px;
+    }
+
+    #hero h1 {
+        font-size: clamp(1.3rem, 6vw, 1.8rem) !important;
+    }
+
+    #hero p {
+        font-size: 0.85rem !important;
+    }
+}
+
+/* ========== Navigation - Mobile ========== */
+@media (max-width: 1023px) {
+    .brand-name {
+        font-size: clamp(0.95rem, 3.5vw, 1.3rem) !important;
+    }
+}
+
+/* ========== Especialidades - Mobile ========== */
+@media (max-width: 767px) {
+    #especialidades .grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    #especialidades [class*="p-8"] {
+        padding: 1.25rem !important;
+    }
+}
+
+/* ========== Cake Gallery Slider ========== */
+@media (max-width: 1023px) {
+    .cake-card {
+        flex: 0 0 calc(33.333% - var(--space-md));
+    }
+}
+
+@media (max-width: 767px) {
+    .cake-card {
+        flex: 0 0 calc(50% - var(--space-md));
+    }
+
+    .cake-card img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cake-card {
+        flex: 0 0 calc(100% - var(--space-md));
+    }
+
+    .cake-card img {
+        height: 220px;
+    }
+}
+
+/* ========== Pedido / CTA Section - Mobile ========== */
+@media (max-width: 767px) {
+    #pedido h2 {
+        font-size: clamp(1.75rem, 6vw, 2.5rem) !important;
+    }
+
+    #pedido .grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    #pedido .flex.gap-4 {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+    }
+}
+
+/* ========== Modal - Mobile ========== */
+@media (max-width: 767px) {
+    .modal-content {
+        max-width: 96% !important;
+        max-height: 85vh !important;
+        padding: 1.25rem !important;
+        border-radius: 12px !important;
+    }
+
+    .video-modal .modal-content {
+        padding: 1rem !important;
+    }
+
+    .modal-close {
+        top: 0.6rem !important;
+        right: 0.6rem !important;
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 1.1rem !important;
+    }
+
+    .whatsapp-popup {
+        max-width: 92% !important;
+        padding: 1.25rem !important;
+    }
+
+    .whatsapp-popup-buttons {
+        flex-direction: column !important;
+    }
+}
+
+/* ========== Testimonial Popups - Mobile ========== */
+@media (max-width: 767px) {
+    .testimonial-popup {
+        width: 260px;
+        left: 0.5rem;
+        bottom: 85px;
+        padding: 10px 12px;
+    }
+}
+
+/* ========== Floating Buttons - Mobile ========== */
+@media (max-width: 767px) {
+    .floating-whatsapp {
+        width: 52px !important;
+        height: 52px !important;
+        bottom: 16px !important;
+        right: 16px !important;
+        font-size: 1.4rem !important;
+    }
+
+    .scroll-top-btn {
+        width: 44px !important;
+        height: 44px !important;
+        bottom: 82px !important;
+        right: 16px !important;
+        font-size: 1.1rem !important;
+    }
+}
+
+/* ========== Global Sections - Mobile ========== */
+@media (max-width: 767px) {
+    section {
+        padding-top: 2.5rem !important;
+        padding-bottom: 2.5rem !important;
+    }
+
+    .container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    section h2 {
+        font-size: clamp(1.5rem, 5.5vw, 2rem) !important;
+        margin-bottom: 0.75rem !important;
+    }
+
+    .mb-16 {
+        margin-bottom: 2rem !important;
+    }
+}
+
+/* ========== Typography - Mobile ========== */
+@media (max-width: 640px) {
+    h2 {
+        font-size: 1.6rem !important;
+    }
+
+    h3 {
+        font-size: 1.25rem !important;
+    }
+
+    p {
+        font-size: 0.92rem !important;
+        line-height: 1.6 !important;
+    }
+}
+
+/* ========== Print Styles ========== */
+@media print {
+
+    .floating-whatsapp,
+    .scroll-top-btn,
+    .testimonial-popup,
+    nav {
+        display: none !important;
+    }
 }
 
 @keyframes slideDown {
