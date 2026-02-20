@@ -212,17 +212,17 @@ const cakesData = [
         desc: 'Una tarta de aniversario exquisita en blanco y oro puro que celebra los años vividos con toda la elegancia que merecen. El bizcocho de chocolate intenso se funde con una crema de avellanas y nata que derrite el corazón, mientras las volutas doradas y el papel de oro crean una pieza digna de un evento de alta gama.\n\n🧁 Ingredientes:\n• Bizcocho de chocolate negro húmedo de sabor profundo e irresistible\n• Relleno: crema de avellanas artesanal y nata montada suave\n• Decoración: nata con volutas en tonos oro y blanco hechas a mano\n• Papel de oro comestible aplicado artesanalmente como toque de lujo\n• Topper Happy Birthday de color oro como corona de la celebración\n\n✨ Para los años que merecen una tarta tan especial como el amor que celebran. Elegancia, sabor y recuerdos en cada porción. ¡Reserva la tuya!'
     },
     {
-        img: '23.jpeg', video: '24.mp4',
+        img: '23.jpeg', video: '23.mp4',
         title: '🐭 Tarta Mágica de Mickey Mouse - El Sueño de Miki',
         desc: '¡Haz que la fiesta de tu pequeño sea inolvidable con el ratoncito más querido del mundo! Una creación llena de color y alegría que transportará a todos a la magia de Disney. Esta tarta no solo es un festín para la vista con su temática de Mickey y Minnie, sino una delicia irresistible que combina la suavidad de la vainilla con el toque premium de los bombones.\n\n🧁 Ingredientes:\n• Bizcocho de vainilla artesanal, tierno y muy esponjoso\n• Relleno: Krem de chocolate y fresa natural de sabor intenso\n• Bombones premium integrados entre capas para un toque crujiente\n• Decoración temática inspirada en Mickey y Minnie Mouse\n• Detalles artesanales en cada bocado\n\n✨ Sorprende al cumpleañero con su personaje favorito convertido en la tarta más deliciosa. ¡La magia de Mickey en tu celebración!'
     },
     {
-        img: '24.jpeg', video: '25.mp4',
+        img: '24.jpeg', video: '24.mp4',
         title: '🎀 Tarta Hello Kitty - Dulzura y Encanto Rosa',
         desc: 'La tarta más dulce para las más fans de Hello Kitty. Un diseño infantil encantador que combina la intensidad del chocolate con la suavidad del chocolate blanco. Cada porción es un viaje de texturas gracias a los bombones sorpresa escondidos en su interior, haciendo que cada momento de la merienda sea una celebración mágica.\n\n🧁 Ingredientes:\n• Bizcocho de chocolate negro, húmedo y lleno de sabor\n• Relleno: Crema pastelera artesanal y chocolate blanco cremoso\n• Bombones sorpresa en el interior para una experiencia explosiva\n• Decoración infantil temática de Hello Kitty con detalles en rosa\n• Acabado artesanal delicado y divertido\n\n✨ Perfecta para cumpleaños infantiles donde la dulzura y la diversión son las protagonistas. ¡Regala un momento Hello Kitty!'
     },
     {
-        img: '25.jpeg', video: '1.mp4',
+        img: '25.jpeg', video: '25.mp4',
         title: '👑 Tarta Real con Foto de Princesas - Tu Pequeña es la Protagonista',
         desc: 'Convierte a tu hija en la verdadera protagonista de su propio cuento de hadas. Esta tarta combina la elegancia de las princesas con la personalización más emotiva: ¡su propia foto! Una obra maestra de dos sabores que une lo mejor de la vainilla y el chocolate para satisfacer a todos los paladares reales.\n\n🧁 Ingredientes:\n• Mix de bizcocho de vainilla y chocolate para un contraste perfecto\n• Relleno doble: Krema de chocolate y crema pastelera tradicional\n• Foto personalizada de la niña en papel comestible de alta definición\n• Decoración temática inspirada en las princesas favoritas\n• Detalles dorados y mágicos para un acabado de lujo\n\n✨ Haz que se sienta como una auténtica princesa en su día especial. Un recuerdo inolvidable que se puede comer. ¡Personaliza la suya ahora!'
     }
